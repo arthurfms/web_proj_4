@@ -11,9 +11,7 @@ import {
   userJob,
   nameInput,
   jobInput,
-  formSelectors,
 } from "./utils/utils.js";
-import FormValidator from "./components/FormValidator.js";
 
 const cardSection = new Section(
   {
