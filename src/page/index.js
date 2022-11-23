@@ -1,7 +1,7 @@
-import "./pages/index.css";
-import { PopupWithForms } from "./components/PopupWithForms.js";
-import { Card } from "./components/Card.js";
-import { Section } from "./components/Section.js";
+import "./index.css";
+import { PopupWithForms } from "../components/PopupWithForms.js";
+import { Card } from "../components/Card.js";
+import { Section } from "../components/Section.js";
 import {
   cards,
   editUserButton,
@@ -11,9 +11,7 @@ import {
   userJob,
   nameInput,
   jobInput,
-  formSelectors,
-} from "./utils/utils.js";
-import FormValidator from "./components/FormValidator.js";
+} from "../utils/utils.js";
 
 const cardSection = new Section(
   {

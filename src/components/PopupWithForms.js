@@ -1,19 +1,6 @@
 import Popup from "./Popup.js";
 import FormValidator from "./FormValidator.js";
-import {
-  cards,
-  editUserButton,
-  addUserButton,
-  ImagePopup,
-  userName,
-  userJob,
-  nameInput,
-  jobInput,
-  formList,
-  userPopup,
-  cardPopup,
-  formSelectors,
-} from "../utils/utils.js";
+import { formSelectors } from "../utils/utils.js";
 
 class PopupWithForms extends Popup {
   constructor({ selector, sending }) {
@@ -35,6 +22,11 @@ class PopupWithForms extends Popup {
     });
     return this._inputs;
   }
+  _cleanInputsValues() {
+    this._inputsList.forEach((input) => {
+      input.value = "";
+    });
+  }
   open() {
     this._inputsList = this._form.querySelectorAll(".form__input");
     const newForm = new FormValidator(formSelectors, this._form);
@@ -48,6 +40,7 @@ class PopupWithForms extends Popup {
     this._closeButton.removeEventListener("click", this.boundClose);
     this._sendButton.removeEventListener("click", this.boundAdding);
     this._popup.classList.remove("popup_opened");
+    this._cleanInputsValues();
   }
 
   _adding(evt) {
