@@ -32,16 +32,20 @@ const cardSection = new Section(
 );
 
 cardSection.renderItems();
+let userData = { name: userName.textContent, job: userJob.textContent };
+const pageUser = new UserInfo(userData);
 
 editUserButton.addEventListener("click", () => {
   const UserForm = new PopupWithForms({
     selector: "popup_user",
     sending: () => {
       const inputs = UserForm._getInputValues();
-      const userData = { name: inputs["name-input"], job: inputs["job-input"] };
-      const newUser = new UserInfo(userData);
+      userData = {
+        name: inputs["name-input"],
+        job: inputs["job-input"],
+      };
+      pageUser.updateUserData(userData);
       UserForm.close();
-      newUser.setUserInfo();
     },
   });
 
